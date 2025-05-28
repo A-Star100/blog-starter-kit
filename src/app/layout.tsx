@@ -11,8 +11,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: `CodeArticles`,
-  description: `Just articles about coding. That's it.`,
+  title: `Ani's Dev Blog`,
+  description: `My personal developer blog!`,
   openGraph: {
     images: [HOME_OG_IMAGE_URL],
   },
