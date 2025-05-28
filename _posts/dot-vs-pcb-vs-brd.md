@@ -1,13 +1,13 @@
 ---
 title: "All the boards"
 excerpt: ""
-coverImage: "/assets/blog/dotvspcbvsbrd/cover.png"
+coverImage: "/assets/blog/dotvspcbvsbrd/cover.webp"
 date: "2024-05-28"
 author:
   name: Anirudh Sevugan
   picture: "/assets/blog/authors/anirudh.png"
 ogImage:
-  url: "/assets/blog/dotvspcbvsbrd/cover.png"
+  url: "/assets/blog/dotvspcbvsbrd/cover.webp"
 ---
 
 Alright, this is an obvious one for hardware fans.
