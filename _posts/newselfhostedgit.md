@@ -13,4 +13,4 @@ ogImage:
 Remember my old self hosted GitLab? I took it to the next level. I used Gitea with an affordable yet valuable VM with a decent cloud provider and static IP address (I'm sure you can figure it out)
 and now have a constantly running Git server for mirrors of my personal repos!
 
-The server will is (usually) up daily but not always, so if you want it to be you can contact me at [personal@anirudhsevugan.me](mailto:personal@anirudhsevugan.me)
+The server is (usually) up daily but not always, so if it isn't but you want it to be you can contact me at [personal@anirudhsevugan.me](mailto:personal@anirudhsevugan.me)
