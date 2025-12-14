@@ -2,7 +2,7 @@
 title: "Custom Android ROMs - Breathing new life into old devices"
 excerpt: ""
 coverImage: "/assets/blog/customandroidrom/lineage.jpeg"
-date: "2025-05-27"
+date: "2025-12-14"
 author:
   name: Anirudh Sevugan
   picture: "/assets/blog/authors/anirudh.png"
