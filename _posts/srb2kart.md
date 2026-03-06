@@ -16,7 +16,7 @@ I was honestly pretty surprised! So in this article I'm gonna tell you what happ
 
 ## Why did I update the runtime?
 The game was perfectly fine with the old 23.08 runtime; but it was EOL.
-The freedesktop runtime is very very *veryyy* crucial (I cannot stress this enough!) for every Flatpak because it includes several versions of tools such as CMake.
+The freedesktop runtime is **super duper** crucial (I cannot stress this enough!) for every Flatpak because it includes several versions of tools such as CMake.
 And since SRB2Kart builds using a Makefile with a compiler included with the runtime, as well as several other libraries,
 this is why having an EOL runtime isn't too great.
 
@@ -30,7 +30,7 @@ all natively on every platform (Windows, macOS, and Linux).
 
 But unfortunately... it's deprecated. A lot of games still use it but it hasn't been updated in ages.
 And the only solution? Updating to Discord's proprietary SDK that not only comes loaded with new features, it's not too great to use in open-source projects.
-AND the compiler HATED discord-rpc with the runtime update.
+*And* the compiler **hated** discord-rpc with the runtime update.
 
 When trying my first test build, CMake whined because `discord-rpc` was designed for very old CMake versions.
 Which means we gotta add
@@ -39,7 +39,7 @@ Which means we gotta add
 ```
 to the config-opts for the `discord-rpc` module.
 
-But AFTER this another problem arised...
+But *after* this another problem arised...
 As mentioned in a [GitHub issue](https://github.com/flathub/org.srb2.SRB2Kart/issues/60) in the repo (for the failure to update to the 24.08 runtime), a stacktrace is given that says
 ```shell
 At global scope:
@@ -96,8 +96,8 @@ In member function ‘rapidjson::GenericStringRef<CharType>& rapidjson::GenericS
 Apparently this was a bug in the `rapidjson` library itself that was patched in an update...
 but unfortunately the last GitHub release for `rapidjson` was `v1.1.0` (released in 2016) which included the bug.
 So what would I do?
-Well, Git is a platform for source code, and the [rapidjson](https://github.com/Tencent/rapidjson) repo had MUCH newer source available,
-that WHACKED the terrible bug out.
+Well, Git is a platform for source code, and the [rapidjson](https://github.com/Tencent/rapidjson) repo had *much* newer source available,
+that *whacked* the terrible bug out.
 
 So the solution was simply to update the `rapidjson` version used.
 ```yaml
@@ -107,19 +107,19 @@ So the solution was simply to update the `rapidjson` version used.
         url: https://github.com/Tencent/rapidjson/archive/24b5e7a8b27f42fa16b96fc70aade9106cf7102f.tar.gz
         sha256: 2d2601a82d2d3b7e143a3c8d43ef616671391034bc46891a9816b79cf2d3e7a8
 ```
-I purposely decided to keep the rapidjson version frozen because this one worked pretty well with Kart, and I didn't want to use the latest commit
+I purposely decided to keep the `rapidjson` version frozen because this one worked pretty well with Kart, and I didn't want to use the latest commit
 so breaking changes would be included in production builds of SRB2Kart.
 
 ### srb2kart
 The SRB2Kart module ALSO had some build problems, regarding the C standard.
 A C standard is basically a set of rules the compiler and linters will follow.
 Back with the old runtime (freedesktop 23.08) the default C standard was much older and compatible with SRB2Kart's source code.
-But with the NEW runtime (25.08), it updated the C standard to C23, which was far newer and had direct conflicts with SRB2 and SRB2Kart's source.
+But with the **new** runtime (25.08), it updated the C standard to C23, which was far newer and had direct conflicts with SRB2 and SRB2Kart's source.
 And C23 had a crucial difference with the older standards.
 It set the `register` keyword to a reserved one.... now THIS was bad because many older games
-would use register practically EVERYWHERE as a hack to define variables.
+would use register practically *everywhere* as a hack to define variables.
 But if it is reserved it can only be used in a controlled manner, so when I did the NEXT test build for Kart,
-the compiler ABSOLUTELY HATED the BLATANT usage of register...
+the compiler **absolutely hated** the *blatant* usage of register...
 
 But by setting the C standard back to C17, everything worked fine.
 ```yaml
@@ -130,10 +130,10 @@ But by setting the C standard back to C17, everything worked fine.
 However, extra logs were added for fastmix.cpp, and by that I mean a whopping 1000+ lines...
 But this was just because of another hack being used.
 In the past, devs used to use register (for fastmix they were used in places C23 liked)
-for int variables to ENSURE they were set instantly and to not waste valuable CPU cycles computing when exactly to add it.
+for int variables to *ensure* they were set instantly and to not waste valuable CPU cycles computing when exactly to add it.
 They were just force-added.
-But in newer C standards, this hack was no longer needed; so the compiler would throw warnings for each and EVERY instance of `register`
-(a HUGE amount...), and the game would never use the register keyword (instead just set an `int`) and the hack would be useless.
+But in newer C standards, this hack was no longer needed; so the compiler would throw warnings for each and *every* instance of `register`
+(a **huge** amount...), and the game would never use the register keyword (instead just set an `int`) and the hack would be useless.
 
 So in a new PR I made (not the merged one; a different one), I added 
 ```yaml
