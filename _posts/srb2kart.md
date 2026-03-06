@@ -182,8 +182,8 @@ If you play the game on Linux, you've now got an insider look at what happened o
 It's not crucial, but it is for a library migration
 You see, SRB2Kart works on Steam Decks.
 And Steam Decks utilize a little feature called *Gamescope* for games.
-It's basically a middleman between the game and the OS, that adds extra features (like AMDX-graphics-something support for the TRUE GAMERS).
-But SRB2Kart doesn't take advantage of that... (wawaawaaaaaaaaa...).
+It's basically a middleman between the game and the OS, that adds extra features (like AMD FidelityFX Super Resolution (FSR) support for the TRUE GAMERS... I literally had to Google this just to double-check the meaning).
+But SRB2Kart doesn't take advantage AMDX support, it just uses Gamescope to comply with Steam decks.
 
 But the library used for gamescope support (`com.valvesoftware.Steam.Utility.gamescope`) was deprecated recently.
 While this is fine for now, it means it'll get NO security updates... or any updates really.
