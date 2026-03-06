@@ -1,13 +1,13 @@
 ---
 title: "SRB2Kart's runtime update"
 excerpt: ""
-coverImage: "https://wiki.srb2.org/w/images/a/ac/Srb2kart_title.png"
+coverImage: "/assets/blog/srb2kartruntimeupdate/kart.png"
 date: "2026-03-05"
 author:
   name: Anirudh Sevugan
   picture: "/assets/blog/authors/anirudh.png"
 ogImage:
-  url: "https://wiki.srb2.org/w/images/a/ac/Srb2kart_title.png"
+  url: "/assets/blog/srb2kartruntimeupdate/kart.png"
 ---
 
 If you know me, I've always liked Sonic Robo Blast 2, and a fork of it, Sonic Robo Blast 2 Kart.
