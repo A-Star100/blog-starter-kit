@@ -149,7 +149,7 @@ Libgme (thankfully) didn't cause any problems. It is what is used for music play
 SDL2-mixer supplements it (I think, oughta double check).
 But v0.6.3 was being used with an older `bitbucket.org` link instead of the proper upstream one on GitHub.
 So I updated the version. But the cleanup section in the module was causing issues.
-```shell
+```yaml
     cleanup:
        - /include
        - /lib/*.so # this is what we're talkin about
