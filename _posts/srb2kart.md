@@ -145,10 +145,16 @@ SDL2 in the freedesktop runtime and its mixer lib does *not* come with modplug s
 But if you recompile it with modplug options, you get support.
 
 ### libgme
-Libgme (thankfully) didn't cause any problems. It is what is used for music playback in Kart.
-SDL2-mixer supplements it (I think, oughta double check).
-But v0.6.3 was being used with an older `bitbucket.org` link instead of the proper upstream one on GitHub.
-So I updated the version. But the cleanup section in the module was causing issues.
+Libgme (thankfully) had no build issues, but it **did** cause a slightly worse issue.... heh heh
+Kart uses it for music playback.
+Buuut... the current mixer (Nuked) used in the game (on Linux) is very resource intensive, which is what [this PR](https://github.com/flathub/org.srb2.SRB2Kart/pull/56)
+fixes. But then we delve into license incompatibility issues and stuff... not great.
+License incompatibility is basically a maze.
+*Anywayy*, SDL_Mixer_X (the SDL mixer used in Kart) ***also*** works with Libgme, and the upstream SDL2 added support for it once updated to 2.8.1.
+So the integration was likely used well :)
+But v0.6.3 of Libgme was being used with an older `bitbucket.org` link instead of the one on GitHub with the latest version.
+The old bitbucket one didn't have the latest version anymore, which'd mean Kart would be using outdated libs.
+So I updated the version. But the cleanup section in the module was causing issues for some reason.
 ```yaml
     cleanup:
        - /include
@@ -168,7 +174,7 @@ Apparently on x64 machines /app/lib64 is used by the compiler for that arch's bu
 and /app/lib is used for almost everything else.
 That is why when I tested on my arm64 Ubuntu VM, everything worked!
 But on a heavily used MacBook Air I had with [t2linux](https://t2linux.org) on it, it did not work.
-Thankfully I tested this before I pushed this broken build to prod, and caused **chaos** for over 80,000 Linux gamers worldwide.
+Thankfully I tested this before I pushed this broken build to prod, and caused **chaos** for all the players worldwide.
 
 How did I fix this??
 Well I just added 
@@ -207,7 +213,7 @@ were fine with it I decided to leave it as is and only clean this up in a new PR
 ___
 
 And then, it got merged... my contributions were now included in [SRB2Kart on Flathub](https://flathub.org/apps/details/org.srb2.SRB2Kart).
-And over 90,000 gamers who were ***huge*** fans of [Tux](https://en.wikipedia.org/wiki/Tux_(mascot)) over here, were now able to update to my patched version.
+And many fans who were ***huge*** fans of [Tux](https://en.wikipedia.org/wiki/Tux_(mascot)) over here, were now able to update to my patched version.
 I was pretty glad honestly :D, and it was a huge honor too.
 So now you've now got an insider look at what happened on the scene!!!
 The reason this is so cool is because I always used to **play** SRB2Kart, and **dream** of contributing.
