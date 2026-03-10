@@ -1,6 +1,6 @@
 ---
 title: "SRB2Kart's runtime update"
-excerpt: "The SRB2Kart module ALSO had some build problems, regarding the C standard.A C standard is basically a set of rules the compiler and linters will follow.Back with the old runtime (freedesktop 23.08) the default C standard was much older and compatible with SRB2Kart's source code.But with the **new** runtime (25.08)..."
+excerpt: "The SRB2Kart module also had some build problems, regarding the C standard. A C standard is basically a set of rules the compiler and linters will follow. Back with the old runtime (freedesktop 23.08) the default C standard was much older and compatible with SRB2Kart's source code. But with the **new** runtime (25.08)..."
 coverImage: "/assets/blog/srb2kartruntimeupdate/kart.png"
 date: "2026-03-05"
 author:
