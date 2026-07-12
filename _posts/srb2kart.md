@@ -107,9 +107,9 @@ Apparently this was a bug in the `rapidjson` library itself that was patched in 
 but unfortunately the last GitHub release for `rapidjson` was `v1.1.0` (released in 2016) which included the bug.
 So what would I do?
 Well, Git is a platform for source code, and the [rapidjson](https://github.com/Tencent/rapidjson) repo had *much* newer source available,
-that *whacked* the terrible bug out.
+that fixed the issue.
 
-So the solution was simply to update the `rapidjson` version used.
+So the solution was simply to update the `rapidjson` version used. Literally.
 ```yaml
     sources:
       - type: archive
